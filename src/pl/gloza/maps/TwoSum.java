@@ -27,10 +27,25 @@ public class TwoSum {
         return pairsByNumber;
     }
 
+    //szukam pary po kluczu
+    public static Integer[] findByKey(Map<Integer, Integer[]> pairsByNumber, int target) {
+        if (pairsByNumber.containsKey(target)) {
+            return pairsByNumber.get(target);
+        }
+        return null;
+    }
+
+
     public static void main(String[] args) {
         int[] nums = {2, 7, 11, 15};
+        int[] nums1 = {3, 2, 4};
+
         Map<Integer, Integer[]> sumByNumber = sumByNumber(nums);
         for (Map.Entry<Integer, Integer[]> number : sumByNumber.entrySet())
             System.out.println(number.getKey() + " " + Arrays.toString(number.getValue()));
+
+        Integer[] foundValues = findByKey(sumByNumber, 18);
+        System.out.println("Found values: " + Arrays.toString(foundValues));
+
     }
 }

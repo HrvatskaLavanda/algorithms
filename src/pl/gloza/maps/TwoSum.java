@@ -11,6 +11,7 @@ public class TwoSum {
     //suma 1-go elementu i 2-go elementu to 1 klucz (wartości 1. element i 2. element)
     //suma 2-go elementu i 3-go elementu to 2 klucz (wartości 2. element i 3. element)
     //suma 3-go elementu i 4-go elementu to 3 klucz (wartości 3. element i 4. element)
+    //edit - wartości to numery indeksów
 
     public static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer[]> pairsByNumber = sumByNumber(nums);
@@ -35,6 +36,9 @@ public class TwoSum {
             Integer[] values = {i, i + 1};
             pairsByNumber.put(sum, values);
         }
+        int sum = nums[0] + nums[nums.length - 1];
+        Integer[] values1 = {0, nums.length - 1};
+        pairsByNumber.put(sum, values1);
         return pairsByNumber;
     }
 
@@ -49,17 +53,9 @@ public class TwoSum {
 
     public static void main(String[] args) {
         int[] nums = {2, 7, 11, 15};
-        int[] nums1 = {3, 2, 4};
 
-        int[] values = twoSum(nums, 26);
+        int[] values = twoSum(nums, 17);
         System.out.println(Arrays.toString(values));
-
-//        Map<Integer, Integer[]> sumByNumber = sumByNumber(nums);
-//        for (Map.Entry<Integer, Integer[]> number : sumByNumber.entrySet())
-//            System.out.println(number.getKey() + " " + Arrays.toString(number.getValue()));
-//
-//        Integer[] foundValues = findByKey(sumByNumber, 9);
-//        System.out.println("Found values: " + Arrays.toString(foundValues));
 
     }
 }

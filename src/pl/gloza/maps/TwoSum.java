@@ -12,16 +12,27 @@ public class TwoSum {
     //suma 2-go elementu i 3-go elementu to 2 klucz (wartości 2. element i 3. element)
     //suma 3-go elementu i 4-go elementu to 3 klucz (wartości 3. element i 4. element)
 
-//    public static int[] twoSum(int[] nums, int target) {
-//
-//    }
+    public static int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer[]> pairsByNumber = sumByNumber(nums);
+        Integer[] valuesByKey = findByKey(pairsByNumber, target);
+
+        //tworzę nową tablicę int, w której umieszczę wartości z Integer
+        //deklaruje długość nowej tablicy
+
+        int[] foundValues = new int[valuesByKey.length];
+        for (int i = 0; i < valuesByKey.length; i++) {
+            foundValues[i] = valuesByKey[i];
+        }
+        return foundValues;
+    }
 
     public static Map<Integer, Integer[]> sumByNumber(int[] nums) {
         Map<Integer, Integer[]> pairsByNumber = new HashMap<>();
 
         for (int i = 0; i < nums.length - 1; i++) {
             int sum = nums[i] + nums[i + 1];
-            Integer[] values = {nums[i], nums[i + 1]};
+            //w zadaniu mam zwrócić numery indeksów, więc jako wartości do mapy podaję ich indeksy
+            Integer[] values = {i, i + 1};
             pairsByNumber.put(sum, values);
         }
         return pairsByNumber;
@@ -40,12 +51,15 @@ public class TwoSum {
         int[] nums = {2, 7, 11, 15};
         int[] nums1 = {3, 2, 4};
 
-        Map<Integer, Integer[]> sumByNumber = sumByNumber(nums);
-        for (Map.Entry<Integer, Integer[]> number : sumByNumber.entrySet())
-            System.out.println(number.getKey() + " " + Arrays.toString(number.getValue()));
+        int[] values = twoSum(nums, 26);
+        System.out.println(Arrays.toString(values));
 
-        Integer[] foundValues = findByKey(sumByNumber, 18);
-        System.out.println("Found values: " + Arrays.toString(foundValues));
+//        Map<Integer, Integer[]> sumByNumber = sumByNumber(nums);
+//        for (Map.Entry<Integer, Integer[]> number : sumByNumber.entrySet())
+//            System.out.println(number.getKey() + " " + Arrays.toString(number.getValue()));
+//
+//        Integer[] foundValues = findByKey(sumByNumber, 9);
+//        System.out.println("Found values: " + Arrays.toString(foundValues));
 
     }
 }

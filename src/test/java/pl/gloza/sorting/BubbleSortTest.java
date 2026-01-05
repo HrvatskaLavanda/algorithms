@@ -1,10 +1,10 @@
 package pl.gloza.sorting;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class BubbleSortTest extends TestCase {
-    public void testBubbleSort() {
+class BubbleSortTest {
 
+    @Test
+    void bubbleSort() {
     }
-
 }

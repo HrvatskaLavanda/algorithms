@@ -21,6 +21,7 @@ class BubbleSortTest {
         int[] sortedNums = BubbleSort.bubbleSort(nums);
 
         //then
+        Assertions.assertNotNull(sortedNums, "Array is null");
         Assertions.assertArrayEquals(expected, sortedNums);
 
     }

@@ -1,5 +1,7 @@
 package pl.gloza.sorting;
 
+import java.util.Arrays;
+
 public class SelectionSort {
     private static int findIndexOfMinElement(int[] array, int startIndex) {
         int minIndex = startIndex; //indeks najmniejszego elementu
@@ -12,6 +14,20 @@ public class SelectionSort {
         return minIndex;
     }
 
+    public static void swap(int[] array, int index1, int index2) {
+        int temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
+    }
+
+    public static int[] insertionSort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            int minIndex = findIndexOfMinElement(array, i);
+            swap(array, i, minIndex);
+        }
+        return array;
+    }
+
     public static void main(String[] args) {
         int[] nums = {1, 2, 5, 4, 10, 10, -1, 5};
         int[] nums2 = {-5, 7, -2, -5, -100, 100, 52, 150};
@@ -20,5 +36,8 @@ public class SelectionSort {
 
         int indexOfMinElement = findIndexOfMinElement(nums2, 5);
         System.out.println("Index of Min Element: " + indexOfMinElement);
+
+        int[] selectedNumbers = insertionSort(nums4);
+        System.out.println("Insertion sort: " + Arrays.toString(selectedNumbers));
     }
 }

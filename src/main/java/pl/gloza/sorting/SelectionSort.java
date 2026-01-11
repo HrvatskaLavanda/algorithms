@@ -20,7 +20,7 @@ public class SelectionSort {
         array[index2] = temp;
     }
 
-    public static int[] insertionSort(int[] array) {
+    public static int[] selectionSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             int minIndex = findIndexOfMinElement(array, i);
             swap(array, i, minIndex);
@@ -37,7 +37,7 @@ public class SelectionSort {
         int indexOfMinElement = findIndexOfMinElement(nums2, 5);
         System.out.println("Index of Min Element: " + indexOfMinElement);
 
-        int[] selectedNumbers = insertionSort(nums4);
+        int[] selectedNumbers = selectionSort(nums4);
         System.out.println("Insertion sort: " + Arrays.toString(selectedNumbers));
     }
 }

@@ -1,5 +1,7 @@
 package pl.gloza.recursion;
 
+import java.util.Random;
+
 public class SumElements {
     public static int sumElements(int[] tab) {
         int sum = 0;
@@ -19,14 +21,15 @@ public class SumElements {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 5, 4, 10, 10, -1, 5};
-        int[] nums2 = {-5, 7, -2, -5, -100, 100, 52, 150};
-        int[] nums3 = {5, 0, 0, 0, 1, -1};
-        int[] nums4 = {0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0};
+        Random rand = new Random();
+        int[] tab = new int[10];
+        for (int i = 0; i < tab.length; i++) {
+            tab[i] = rand.nextInt();
+        }
 
-        int sum = sumElements(nums);
+        int sum = sumElements(tab);
         System.out.println("With for loop: " + sum);
-        int sumRecursive = sumElementsRecursive(nums, 0, 0);
+        int sumRecursive = sumElementsRecursive(tab, 0, 0);
         System.out.println("Recursion: " + sumRecursive);
     }
 }

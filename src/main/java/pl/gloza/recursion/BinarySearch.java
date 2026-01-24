@@ -1,5 +1,6 @@
 package pl.gloza.recursion;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class BinarySearch {
@@ -64,10 +65,11 @@ public class BinarySearch {
             nums[i] = rand.nextInt();
         }
 
-        int result = binarySearch(nums2, 100);
+        Arrays.sort(nums);
+        int result = binarySearch(nums, 100);
         System.out.println(result);
 
-        int resultRecursion = binarySearchRecursive(nums2, 100, 0, nums2.length - 1);
+        int resultRecursion = binarySearchRecursive(nums, 100, 0, nums.length - 1);
         System.out.println(resultRecursion);
     }
 }
